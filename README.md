@@ -36,5 +36,4 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 =======
-# gbnaf-dashboard
->>>>>>> 7eca77c17fb90d3ecbd0253f03b6c42a4ccac760
+
