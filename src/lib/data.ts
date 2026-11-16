@@ -145,11 +145,10 @@ export const initialProgrammes: AdminOpportunity[] = [
     operationalArea: "Food Relief",
     startDate: "Nov 15, 2026",
     endDate: "Nov 15, 2026",
-    location:
-      "Corporate 14, Dubai International Market, behind Kaura Market, Games Village, Abuja (NHFB Office)",
-    description:
-      "This is a sample description for the opportunity. It provides an overview of the opportunity's purpose, goals, and activities.",
+    location: "Corporate 14, Dubai International Market, behind Kaura Market, Games Village, Abuja (NHFB Office)",
+    description: "This is a sample description for the opportunity. It provides an overview of the opportunity's purpose, goals, and activities.",
     totalRegistered: 8,
+    startTime: '6'
   },
   {
     id: "opp-2",
@@ -158,6 +157,7 @@ export const initialProgrammes: AdminOpportunity[] = [
     operationalArea: "Eco-Agriculture",
     startDate: "Nov 15, 2026",
     endDate: "Nov 15, 2026",
+    startTime: '6',
     location:
       "Corporate 14, Dubai International Market, behind Kaura Market, Games Village, Abuja (NHFB Office)",
     description:
@@ -169,6 +169,7 @@ export const initialProgrammes: AdminOpportunity[] = [
     title: "Opportunity Title",
     status: "Pending",
     operationalArea: "School Nutrition",
+    startTime: '6',
     startDate: "Nov 15, 2026",
     location:
       "Corporate 14, Dubai International Market, behind Kaura Market, Games Village, Abuja (NHFB Office)",
@@ -183,6 +184,7 @@ export const initialProgrammes: AdminOpportunity[] = [
     title: "Opportunity Title",
     status: "Completed",
     operationalArea: "Food Relief",
+    startTime: '6',
     startDate: "Nov 15, 2026",
     location:
       "Corporate 14, Dubai International Market, behind Kaura Market, Games Village, Abuja (NHFB Office)",
@@ -202,6 +204,7 @@ export const initialProgrammes: AdminOpportunity[] = [
       "This is a sample description for the opportunity. It provides an overview of the opportunity's purpose, goals, and activities.",
 
     operationalArea: "Food Relief",
+    startTime: '6',
     startDate: "Nov 15, 2026",
     endDate: "End 1, 2026",
     totalRegistered: 10,
@@ -216,6 +219,7 @@ export const initialProgrammes: AdminOpportunity[] = [
       "This is a sample description for the opportunity. It provides an overview of the opportunity's purpose, goals, and activities.",
 
     operationalArea: "Food Relief",
+    startTime: '6',
     startDate: "Nov 15, 2026",
     endDate: "End 1, 2026",
     totalRegistered: 8,
@@ -230,6 +234,7 @@ export const initialProgrammes: AdminOpportunity[] = [
       "This is a sample description for the opportunity. It provides an overview of the opportunity's purpose, goals, and activities.",
 
     operationalArea: "Eco-Agriculture",
+    startTime: '6',
     startDate: "Nov 15, 2026",
     endDate: "End 1, 2026",
     totalRegistered: 8,
@@ -244,7 +249,8 @@ export const initialProgrammes: AdminOpportunity[] = [
     description:
       "This is a sample description for the opportunity. It provides an overview of the opportunity's purpose, goals, and activities.",
 
-    startDate: "Nov 1, 2026",
+    startTime: '6',
+      startDate: "Nov 1, 2026",
     endDate: "End 1, 2026",
     totalRegistered: 8,
   },
@@ -258,6 +264,7 @@ export const initialProgrammes: AdminOpportunity[] = [
 
     status: "Completed",
     operationalArea: "Food Relief",
+    startTime: '6',
     startDate: "Nov 15, 2026",
     endDate: "End 1, 2026",
     totalRegistered: 8,
@@ -271,6 +278,7 @@ export const initialProgrammes: AdminOpportunity[] = [
       "This is a sample description for the opportunity. It provides an overview of the opportunity's purpose, goals, and activities.",
     status: "Completed",
     operationalArea: "Eco-Agriculture",
+    startTime: '6',
     startDate: "Nov 15, 2026",
     endDate: "Nov 11, 2026",
     totalRegistered: 12,

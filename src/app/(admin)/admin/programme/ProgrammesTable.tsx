@@ -117,8 +117,8 @@ export function ProgrammesTable({
                       }}
                       className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-medium text-basket-darkgreen hover:bg-basket-cream/40"
                     >
-                      <Eye className="size-3.5 text-basket-darkgreen/60" /> View
-                      details
+                      <Eye className="size-3.5 text-basket-darkgreen/60" />
+                      View details
                     </button>
                     <button
                       type="button"

@@ -18,13 +18,13 @@ const iconMap = {
 
 const getProgramStatusBadgeVariant = (status: ActiveProgramme["status"]) => {
   switch (status) {
-    case "Optimal":
+    case "Completed":
       return "verified";
-    case "In Progress":
+    case "Pending":
       return "pending";
-    case "On Schedule":
+    case "Steady":
       return "blue";
-    case "Behind Pace":
+    case "Delayed":
       return "destructive";
     default:
       return "default";

@@ -1,13 +1,22 @@
+
 "use client";
 
 import { useMemo, useState } from "react";
-import { Search, Plus, FolderKanban, Users, CheckCircle2 } from "lucide-react";
+import {
+  Search,
+  Plus,
+  FolderKanban,
+  Users,
+  CheckCircle2,
+} from "lucide-react";
 
 import { AdminOpportunity } from "@/types/admin";
 import { initialProgrammes } from "@/lib/data";
 import { ProgrammesTable } from "./ProgrammesTable";
 import { OpportunityModal } from "./ProgrammeModal";
 import { HeaderSection } from "@/components/layout/HeadSection";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { OpportunityDetails } from "./[id]/OpportunityDetails";
 
 type FilterTab = "all" | "active" | "pending" | "delayed";
 
@@ -16,6 +25,7 @@ type OpportunityFormData = {
   operationalArea: AdminOpportunity["operationalArea"];
   startDate: string;
   endDate: string;
+  startTime: string;
   location: string;
   description: string;
   status: "Draft" | "Active";
@@ -30,9 +40,13 @@ export default function AdminProgrammesPage() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const [selectedOpportunity, setSelectedOpportunity] =
+    useState<AdminOpportunity | null>(null);
+
   const [editingProgramme, setEditingProgramme] =
     useState<AdminOpportunity | null>(null);
 
+  // Filter and search programmes
   const filteredProgrammes = useMemo(() => {
     return programmes.filter((prog) => {
       const matchesTab =
@@ -56,11 +70,13 @@ export default function AdminProgrammesPage() {
     });
   }, [programmes, activeTab, searchQuery]);
 
+  // Open create modal
   const handleOpenCreateModal = () => {
     setEditingProgramme(null);
     setIsModalOpen(true);
   };
 
+  // Open edit modal
   const handleOpenEditModal = (id: string) => {
     const target = programmes.find((p) => p.id === id);
 
@@ -70,9 +86,9 @@ export default function AdminProgrammesPage() {
     }
   };
 
+  // Save new or edited programme
   const handleSaveProgramme = (formData: OpportunityFormData) => {
     if (editingProgramme) {
-      // Update existing programme
       setProgrammes((prev) =>
         prev.map((p) =>
           p.id === editingProgramme.id
@@ -84,7 +100,6 @@ export default function AdminProgrammesPage() {
         ),
       );
     } else {
-      // Create new programme
       const newProgramme: AdminOpportunity = {
         id: `opp-${Date.now()}`,
         title: formData.title,
@@ -95,6 +110,7 @@ export default function AdminProgrammesPage() {
         description: formData.description,
         status: formData.status,
         totalRegistered: 0,
+        startTime: formData.startTime,
       };
 
       setProgrammes((prev) => [newProgramme, ...prev]);
@@ -104,13 +120,33 @@ export default function AdminProgrammesPage() {
     setIsModalOpen(false);
   };
 
+  // Delete programme
   const handleDelete = (id: string) => {
     setProgrammes((prev) => prev.filter((p) => p.id !== id));
+
+    // Close details modal if its opportunity is deleted
+    setSelectedOpportunity((prev) =>
+      prev?.id === id ? null : prev,
+    );
   };
 
+  // Open View Details modal
   const handleView = (id: string) => {
-    alert(`Navigating to workspace overview for programme ID: ${id}`);
+    const opportunity = programmes.find(
+      (programme) => programme.id === id,
+    );
+
+    if (opportunity) {
+      setSelectedOpportunity(opportunity);
+    }
   };
+
+  // Get the latest version of the selected opportunity
+  const currentSelectedOpportunity = selectedOpportunity
+    ? programmes.find(
+        (p) => p.id === selectedOpportunity.id,
+      ) ?? null
+    : null;
 
   return (
     <div className="space-y-6 pb-12">
@@ -118,9 +154,9 @@ export default function AdminProgrammesPage() {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <HeaderSection
           title="Organisational Programmes"
-          subtitle=" Manage active operational initiatives, track core development
-            milestones, and oversee programme supervisors."
+          subtitle="Manage active operational initiatives, track core development milestones, and oversee programme supervisors."
         />
+
         <button
           type="button"
           onClick={handleOpenCreateModal}
@@ -139,10 +175,9 @@ export default function AdminProgrammesPage() {
           </div>
 
           <div>
-            <p className="text-lg font-bold text-basket-darkgreen leading-none">
+            <p className="text-lg font-bold leading-none text-basket-darkgreen">
               {programmes.length}
             </p>
-
             <p className="mt-1 text-[11px] font-medium text-basket-darkgreen/55">
               Total Programmes
             </p>
@@ -155,14 +190,13 @@ export default function AdminProgrammesPage() {
           </div>
 
           <div>
-            <p className="text-lg font-bold text-basket-darkgreen leading-none">
+            <p className="text-lg font-bold leading-none text-basket-darkgreen">
               {
                 programmes.filter(
                   (p) => p.status === "Active" || p.status === "Steady",
                 ).length
               }
             </p>
-
             <p className="mt-1 text-[11px] font-medium text-basket-darkgreen/55">
               Steady / Active
             </p>
@@ -170,17 +204,19 @@ export default function AdminProgrammesPage() {
         </div>
 
         <div className="flex items-center gap-3.5 rounded-2xl border border-line bg-white p-4 shadow-2xs">
-          <div className="grid size-10 place-items-center rounded-xl bg-purple-50 text-purple-700">
+          <div className="grid size-10 place-items-center rounded-xl bg-amber-50 text-amber-700">
             <Users className="size-4" />
           </div>
 
           <div>
-            <p className="text-lg font-bold text-basket-darkgreen leading-none">
-              {programmes.reduce((acc, curr) => acc + curr.totalRegistered, 0)}
+            <p className="text-lg font-bold leading-none text-basket-darkgreen">
+              {programmes.reduce(
+                (acc, curr) => acc + curr.totalRegistered,
+                0,
+              )}
             </p>
-
             <p className="mt-1 text-[11px] font-medium text-basket-darkgreen/55">
-              Total Registered
+              Pending Events
             </p>
           </div>
         </div>
@@ -251,7 +287,7 @@ export default function AdminProgrammesPage() {
         </div>
       </div>
 
-      {/* Table */}
+      {/* Programmes Table */}
       <ProgrammesTable
         programmes={filteredProgrammes}
         onEdit={handleOpenEditModal}
@@ -269,6 +305,24 @@ export default function AdminProgrammesPage() {
         onSave={handleSaveProgramme}
         initialData={editingProgramme}
       />
+
+      {/* View Details Modal */}
+      <Dialog
+        open={!!currentSelectedOpportunity}
+        onOpenChange={(open) => {
+          if (!open) {
+            setSelectedOpportunity(null);
+          }
+        }}
+      >
+        <DialogContent className="max-h-[90vh] max-w-3xl overflow-y-auto">
+          {currentSelectedOpportunity && (
+            <OpportunityDetails
+              opportunity={currentSelectedOpportunity}
+            />
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

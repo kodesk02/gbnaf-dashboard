@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import { useState, useEffect } from "react";
@@ -31,6 +32,7 @@ interface OpportunityModalProps {
     title: string;
     operationalArea: AdminOpportunity["operationalArea"];
     startDate: string;
+    startTime: string;
     endDate: string;
     location: string;
     totalRegistered: number;
@@ -107,6 +109,7 @@ export function OpportunityModal({
     const [hours, minutes] = startTime.split(":");
     const hour = Number(hours);
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSelectedHour(String(hour % 12 || 12).padStart(2, "0"));
 
     setSelectedMinute(minutes || "00");
@@ -162,6 +165,7 @@ export function OpportunityModal({
         "Join our team in assisting local farmers with sustainable vertical backyard farming techniques.",
       status,
       totalRegistered,
+      startTime,
     });
 
     onClose();

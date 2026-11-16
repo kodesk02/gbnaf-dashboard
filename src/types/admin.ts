@@ -26,6 +26,7 @@ export interface AdminOpportunity {
   startDate: string;
   endDate: string;
   location: string;
+  startTime: string;
   description: string;
   totalRegistered: number;
 }
