@@ -6,9 +6,14 @@ import { Bell, ChevronDown, Menu, Sun } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { currentUser } from "@/lib/data";
 import { Sidebar } from "./Sidebar";
+import { usePathname } from "next/navigation";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isAdmin = pathname.startsWith("/admin");
+  const userStatus = isAdmin ? "Administrator" : currentUser.status;
 
   return (
     <>
@@ -22,24 +27,35 @@ export function Navbar() {
             <Menu className="size-5" strokeWidth={1.75} />
           </button>
 
-          <Link href="/" className="flex items-center gap-3">
+          <Link
+            href={isAdmin ? "/admin/dashboard" : "/dashboard"}
+            className="flex items-center gap-3"
+          >
             <span className="grid size-10 place-items-center rounded-xl bg-basket-darkgreen">
               <Sun className="size-5 text-emerald-300" strokeWidth={1.75} />
             </span>
             <span>
               <span className="flex items-center gap-2 text-lg font-bold leading-none tracking-tight">
                 GBNAF
-                <Badge variant="blue" className="rounded-md hidden md:block  px-1.5 py-0.5 text-[9px] text-basket-darkgreen/50">NGO</Badge>
+                <Badge
+                  variant="blue"
+                  className="rounded-md hidden md:block  px-1.5 py-0.5 text-[9px] text-basket-darkgreen/50"
+                >
+                  {isAdmin ? "ADMIN" : "NGO"}
+                </Badge>
               </span>
               <span className="mt-1 hidden md:block text-[10px] font-medium uppercase tracking-[0.14em] text-basket-darkgreen/55">
-                Volunteer Platform
+                {isAdmin ? "Field Ledger" : "Volunteer Platform"}
               </span>
             </span>
           </Link>
         </div>
 
         <div className="flex items-center gap-3">
-          <button aria-label="Notifications" className="relative grid size-10 place-items-center rounded-full border border-line bg-white transition-colors hover:bg-basket-cream/50">
+          <button
+            aria-label="Notifications"
+            className="relative grid size-10 place-items-center rounded-full border border-line bg-white transition-colors hover:bg-basket-cream/50"
+          >
             <Bell className="size-4.5" strokeWidth={1.75} />
             <span className="absolute -right-0.5 -top-0.5 grid size-4.5 place-items-center rounded-full bg-basket-olive text-[10px] font-semibold text-white">
               {currentUser.notifications}
@@ -51,8 +67,12 @@ export function Navbar() {
               {currentUser.initials}
             </span>
             <span className="hidden sm:block">
-              <span className="block text-xs font-semibold leading-tight">{currentUser.name}</span>
-              <span className="block text-[10px] font-medium leading-tight text-basket-olive">{currentUser.status}</span>
+              <span className="block text-xs font-semibold leading-tight">
+                {currentUser.name}
+              </span>
+              <span className="block text-[10px] font-medium leading-tight text-basket-olive">
+                {userStatus}
+              </span>
             </span>
             <ChevronDown className="size-3.5 text-basket-darkgreen/40" />
           </button>
@@ -61,7 +81,10 @@ export function Navbar() {
 
       {/* Mobile Sidebar Drawer */}
       {mobileMenuOpen && (
-        <Sidebar mobileOpen={mobileMenuOpen} onMobileClose={() => setMobileMenuOpen(false)} />
+        <Sidebar
+          mobileOpen={mobileMenuOpen}
+          onMobileClose={() => setMobileMenuOpen(false)}
+        />
       )}
     </>
   );

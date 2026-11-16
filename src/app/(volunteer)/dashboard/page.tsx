@@ -2,14 +2,14 @@ import { Award, Bell, BookOpen } from "lucide-react";
 
 import { ProgressCard, StatCard } from "@/components/shared/stat-card";
 import { applications, currentUser, hoursSummary, upcomingShifts, volunteerRoles, weeklyHours } from "@/lib/data";
-import { GreetingHeader } from "@/components/features/dashboard/greeting-header";
-import { HoursGoalCard } from "@/components/features/dashboard/hours-goal-card";
-import { EventCheckIn } from "@/components/features/dashboard/event-checkin";
-import { WeeklyHoursChart } from "@/components/features/dashboard/weekly-hours-chart";
-import { UpcomingShifts } from "@/components/features/dashboard/upcoming-shifts";
-import { ImpactBanner } from "@/components/features/dashboard/impact-banner";
-import { VolunteerRoles } from "@/components/features/dashboard/volunteer-roles";
-import { ApplicationTracking } from "@/components/features/dashboard/application-tracking";
+import { GreetingHeader } from "@/components/features/volunteer/dashboard/greeting-header";
+import { HoursGoalCard } from "@/components/features/volunteer/dashboard/hours-goal-card";
+import { EventCheckIn } from "@/components/features/volunteer/dashboard/event-checkin";
+import { WeeklyHoursChart } from "@/components/features/volunteer/dashboard/weekly-hours-chart";
+import { UpcomingShifts } from "@/components/features/volunteer/dashboard/upcoming-shifts";
+import { ImpactBanner } from "@/components/features/volunteer/dashboard/impact-banner";
+import { VolunteerRoles } from "@/components/features/volunteer/dashboard/volunteer-roles";
+import { ApplicationTracking } from "@/components/features/volunteer/dashboard/application-tracking";
 
 export default function DashboardPage() {
   return (

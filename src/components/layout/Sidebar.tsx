@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { ChevronLeft, ChevronRight, LogOut, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useSidebar } from "@/stores/sidebar-store";
-import { navItems } from "./NavItems";
+import { adminNavItems, volunteerNavItems } from "./NavItems";
 
 const itemBase =
   "relative flex h-11 items-center text-sm font-medium transition-colors outline-none focus-visible:ring-2 focus-visible:ring-white/40";
@@ -18,6 +18,8 @@ interface SidebarProps {
 export function Sidebar({ mobileOpen, onMobileClose }: SidebarProps) {
   const { collapsed, toggle } = useSidebar();
   const pathname = usePathname();
+
+  const navItems = pathname.startsWith("/admin") ? adminNavItems : volunteerNavItems;
 
   const sidebarContent = (
     <aside

@@ -63,7 +63,7 @@ export function UpcomingShifts({ shifts }: { shifts: Shift[] }) {
           <p className="text-[13px] font-semibold text-basket-darkgreen">
             No upcoming events
           </p>
-          <p className="mt-1 max-w-[220px] text-[11px] text-basket-darkgreen/55 leading-relaxed">
+          <p className="mt-1 max-w-55 text-[11px] text-basket-darkgreen/55 leading-relaxed">
             Browse our community initiatives and register for shifts.
           </p>
         </div>
@@ -73,7 +73,7 @@ export function UpcomingShifts({ shifts }: { shifts: Shift[] }) {
         href="/opportunities"
         className={cn(
           buttonVariants({ variant: "outline", size: "sm" }),
-          "mt-4 h-10 w-full border-1 border-basket-olive/25 text-[13px]",
+          "mt-4 h-10 w-full border border-basket-olive/25 text-[13px]",
         )}
       >
        Browse More Volunteer Shifts
