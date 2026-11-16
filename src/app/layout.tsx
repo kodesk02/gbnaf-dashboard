@@ -14,7 +14,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'No Hunger Initiatives Nigeria',
+  title: 'Greener Basket for Nutrition and Agriculture Foundation',
   description: 'Nourishing Lives, Empowering Communities',
 };
 

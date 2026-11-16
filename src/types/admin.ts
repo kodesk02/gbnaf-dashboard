@@ -3,9 +3,32 @@ export type ActiveProgramme = {
   title: string;
   description: string;
   progress: number;
-  status: "Optimal" | "In Progress" | "On Schedule" | "Behind Pace";
+  status: ProgrammeStatus;
   iconName: "Users" | "ShoppingBag" | "Globe" | "RefreshCw";
 };
+
+export type ProgrammeStatus =
+  | "Active"
+  | "Pending"
+  | "Steady"
+  | "Delayed"
+  | "Draft"
+  | "Completed";
+
+
+export type OperationalArea = "Food Relief" | "Eco-Agriculture" | "School Nutrition";
+
+export interface AdminOpportunity {
+  id: string;
+  title: string;
+  status: ProgrammeStatus;
+  operationalArea: OperationalArea;
+  startDate: string;
+  endDate: string;
+  location: string;
+  description: string;
+  totalRegistered: number;
+}
 
 export type UpcomingActivity = {
   id: string;
@@ -45,7 +68,6 @@ export type OperationalVolunteerStat = {
   shortLabel: string;
   value: number;
 };
-
 
 export interface TaskStage {
   label: string;

@@ -31,7 +31,7 @@ export const volunteerNavItems: NavItem[] = [
 
 export const adminNavItems: NavItem[] = [
   { label: "Overview", href: "/admin/dashboard", icon: LayoutGrid },
-  { label: "Programmes", href: "/admin/programmes", icon: Flag },
+  { label: "Programmes", href: "/admin/programme", icon: Flag },
   { label: "Activities", href: "/admin/activities", icon: CalendarDays },
   { label: "Tasks", href: "/admin/tasks", icon: CheckSquare },
   { label: "Approvals", href: "/admin/approvals", icon: ShieldCheck, badge: 3 },

@@ -6,6 +6,7 @@ import {
   UnassignedResponsibility,
   OperationalVolunteerStat,
   PipelineTask,
+  AdminOpportunity,
 } from "@/types/admin";
 import { VolunteerOpportunity } from "@/types/volunteer";
 
@@ -136,13 +137,153 @@ export const applications: {
   },
 ];
 
+export const initialProgrammes: AdminOpportunity[] = [
+  {
+    id: "opp-1",
+    title: "Opportunity Title",
+    status: "Active",
+    operationalArea: "Food Relief",
+    startDate: "Nov 15, 2026",
+    endDate: "Nov 15, 2026",
+    location:
+      "Corporate 14, Dubai International Market, behind Kaura Market, Games Village, Abuja (NHFB Office)",
+    description:
+      "This is a sample description for the opportunity. It provides an overview of the opportunity's purpose, goals, and activities.",
+    totalRegistered: 8,
+  },
+  {
+    id: "opp-2",
+    title: "Opportunity Title",
+    status: "Pending",
+    operationalArea: "Eco-Agriculture",
+    startDate: "Nov 15, 2026",
+    endDate: "Nov 15, 2026",
+    location:
+      "Corporate 14, Dubai International Market, behind Kaura Market, Games Village, Abuja (NHFB Office)",
+    description:
+      "This is a sample description for the opportunity. It provides an overview of the opportunity's purpose, goals, and activities.",
+    totalRegistered: 2,
+  },
+  {
+    id: "opp-3",
+    title: "Opportunity Title",
+    status: "Pending",
+    operationalArea: "School Nutrition",
+    startDate: "Nov 15, 2026",
+    location:
+      "Corporate 14, Dubai International Market, behind Kaura Market, Games Village, Abuja (NHFB Office)",
+    description:
+      "This is a sample description for the opportunity. It provides an overview of the opportunity's purpose, goals, and activities.",
+
+    endDate: "Nov 15, 2026",
+    totalRegistered: 3,
+  },
+  {
+    id: "opp-4",
+    title: "Opportunity Title",
+    status: "Completed",
+    operationalArea: "Food Relief",
+    startDate: "Nov 15, 2026",
+    location:
+      "Corporate 14, Dubai International Market, behind Kaura Market, Games Village, Abuja (NHFB Office)",
+    description:
+      "This is a sample description for the opportunity. It provides an overview of the opportunity's purpose, goals, and activities.",
+
+    endDate: "Nov 15, 2026",
+    totalRegistered: 22,
+  },
+  {
+    id: "opp-5",
+    title: "Opportunity Title",
+    status: "Draft",
+    location:
+      "Corporate 14, Dubai International Market, behind Kaura Market, Games Village, Abuja (NHFB Office)",
+    description:
+      "This is a sample description for the opportunity. It provides an overview of the opportunity's purpose, goals, and activities.",
+
+    operationalArea: "Food Relief",
+    startDate: "Nov 15, 2026",
+    endDate: "End 1, 2026",
+    totalRegistered: 10,
+  },
+  {
+    id: "opp-6",
+    title: "Opportunity Title",
+    status: "Draft",
+    location:
+      "Corporate 14, Dubai International Market, behind Kaura Market, Games Village, Abuja (NHFB Office)",
+    description:
+      "This is a sample description for the opportunity. It provides an overview of the opportunity's purpose, goals, and activities.",
+
+    operationalArea: "Food Relief",
+    startDate: "Nov 15, 2026",
+    endDate: "End 1, 2026",
+    totalRegistered: 8,
+  },
+  {
+    id: "opp-7",
+    title: "Opportunity Title",
+    status: "Draft",
+    location:
+      "Corporate 14, Dubai International Market, behind Kaura Market, Games Village, Abuja (NHFB Office)",
+    description:
+      "This is a sample description for the opportunity. It provides an overview of the opportunity's purpose, goals, and activities.",
+
+    operationalArea: "Eco-Agriculture",
+    startDate: "Nov 15, 2026",
+    endDate: "End 1, 2026",
+    totalRegistered: 8,
+  },
+  {
+    id: "opp-8",
+    title: "Opportunity Title",
+    status: "Pending",
+    operationalArea: "School Nutrition",
+    location:
+      "Corporate 14, Dubai International Market, behind Kaura Market, Games Village, Abuja (NHFB Office)",
+    description:
+      "This is a sample description for the opportunity. It provides an overview of the opportunity's purpose, goals, and activities.",
+
+    startDate: "Nov 1, 2026",
+    endDate: "End 1, 2026",
+    totalRegistered: 8,
+  },
+  {
+    id: "opp-9",
+    title: "Opportunity Title",
+    location:
+      "Corporate 14, Dubai International Market, behind Kaura Market, Games Village, Abuja (NHFB Office)",
+    description:
+      "This is a sample description for the opportunity. It provides an overview of the opportunity's purpose, goals, and activities.",
+
+    status: "Completed",
+    operationalArea: "Food Relief",
+    startDate: "Nov 15, 2026",
+    endDate: "End 1, 2026",
+    totalRegistered: 8,
+  },
+  {
+    id: "opp-10",
+    title: "Opportunity Title",
+    location:
+      "Corporate 14, Dubai International Market, behind Kaura Market, Games Village, Abuja (NHFB Office)",
+    description:
+      "This is a sample description for the opportunity. It provides an overview of the opportunity's purpose, goals, and activities.",
+    status: "Completed",
+    operationalArea: "Eco-Agriculture",
+    startDate: "Nov 15, 2026",
+    endDate: "Nov 11, 2026",
+    totalRegistered: 12,
+  },
+];
+
 export const activeProgrammesData: ActiveProgramme[] = [
   {
     id: "prog-1",
     title: "Youth Mentoring",
     description: "Cohort guidance, developmental community...",
     progress: 75,
-    status: "Optimal",
+    status: "Completed",
     iconName: "Users",
   },
   {
@@ -151,7 +292,7 @@ export const activeProgrammesData: ActiveProgramme[] = [
     description:
       "Emergency food supplies, parcel delivery and nutritional ai...",
     progress: 45,
-    status: "In Progress",
+    status: "Pending",
     iconName: "ShoppingBag",
   },
   {
@@ -159,7 +300,7 @@ export const activeProgrammesData: ActiveProgramme[] = [
     title: "Eco-Cleanups",
     description: "Environmental remediation, plastic reclamation and drain...",
     progress: 68,
-    status: "On Schedule",
+    status: "Steady",
     iconName: "Globe",
   },
   {
@@ -167,7 +308,7 @@ export const activeProgrammesData: ActiveProgramme[] = [
     title: "Resource Mobilization",
     description: "Material sorting, urban warehouse sorting, and...",
     progress: 32,
-    status: "Behind Pace",
+    status: "Delayed",
     iconName: "RefreshCw",
   },
 ];
@@ -269,7 +410,6 @@ export const unassignedResponsibilitiesData: UnassignedResponsibility[] = [
   },
 ];
 
-
 export const volunteerCategoryStats: OperationalVolunteerStat[] = [
   { id: "1", label: "Supply & Logistics", shortLabel: "Supply", value: 42 },
   { id: "2", label: "Field Support", shortLabel: "Field", value: 65 },
@@ -310,7 +450,6 @@ export const pipelineTasks: PipelineTask[] = [
   },
 ];
 
-
 export const initialOpportunities: VolunteerOpportunity[] = [
   {
     id: "opp-1",
@@ -334,8 +473,7 @@ export const initialOpportunities: VolunteerOpportunity[] = [
     program: "Eco-Agriculture",
     date: "Fri, Aug 21, 2026",
     time: "10:00 AM",
-    location:
-      "J.s.s Karon-Majigi Assessment Center, Federal Capital Territory",
+    location: "J.s.s Karon-Majigi Assessment Center, Federal Capital Territory",
     isInvited: true,
     invitationNote: "You have an official invitation",
   },
@@ -373,8 +511,7 @@ export const initialOpportunities: VolunteerOpportunity[] = [
     program: "School Nutrition",
     date: "Mon, Nov 02, 2026",
     time: "06:45 AM",
-    location:
-      "LEA Model Primary School Central Compound, Keffi Corridor Hub",
+    location: "LEA Model Primary School Central Compound, Keffi Corridor Hub",
     isInvited: true,
     invitationNote: "You have an official invitation",
   },
@@ -388,5 +525,6 @@ export const initialOpportunities: VolunteerOpportunity[] = [
     date: "Thu, Nov 12, 2026",
     time: "Complete",
     location: "Sharing Prosperity Community Pavilion, Gwagwalada, FCT",
+    hasCertificate: true,
   },
 ];
