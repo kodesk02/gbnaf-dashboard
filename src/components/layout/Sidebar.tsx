@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronLeft, ChevronRight, LogOut, X } from "lucide-react";
@@ -15,19 +16,14 @@ interface SidebarProps {
   onMobileClose?: () => void;
 }
 
-export function Sidebar({ mobileOpen, onMobileClose }: SidebarProps) {
+function SidebarNavList({ mobileOpen, onMobileClose }: SidebarProps) {
   const { collapsed, toggle } = useSidebar();
   const pathname = usePathname();
 
   const navItems = pathname.startsWith("/admin") ? adminNavItems : volunteerNavItems;
 
-  const sidebarContent = (
-    <aside
-      className={cn(
-        "relative flex h-full flex-col rounded-[28px] bg-basket-darkgreen py-5 transition-[width] duration-300 overflow-hidden",
-        mobileOpen ? "w-full px-4 rounded-none" : collapsed ? "w-16 px-2.5" : "w-50 px-3"
-      )}
-    >
+  return (
+    <>
       <div className="flex items-center justify-between mb-6 px-1">
         {!mobileOpen && (
           <button
@@ -105,6 +101,23 @@ export function Sidebar({ mobileOpen, onMobileClose }: SidebarProps) {
           {(!(!mobileOpen && collapsed)) && <span>Log out</span>}
         </button>
       </div>
+    </>
+  );
+}
+
+export function Sidebar({ mobileOpen, onMobileClose }: SidebarProps) {
+  const { collapsed } = useSidebar();
+
+  const sidebarContent = (
+    <aside
+      className={cn(
+        "relative flex h-full flex-col rounded-[28px] bg-basket-darkgreen py-5 transition-[width] duration-300 overflow-hidden",
+        mobileOpen ? "w-full px-4 rounded-none" : collapsed ? "w-16 px-2.5" : "w-50 px-3"
+      )}
+    >
+      <Suspense fallback={<div className="h-full animate-pulse bg-white/5 rounded-xl" />}>
+        <SidebarNavList mobileOpen={mobileOpen} onMobileClose={onMobileClose} />
+      </Suspense>
     </aside>
   );
 
