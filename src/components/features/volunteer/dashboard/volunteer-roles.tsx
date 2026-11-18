@@ -5,8 +5,8 @@ import { CalendarDays, ChevronRight, Clock, MapPin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { LinkCard } from "@/components/shared/link-card";
 import { SectionCard } from "@/components/shared/section-card";
-import type { RoleMode } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import { RoleMode } from "@/types/admin";
 
 type Role = {
   id: string;
