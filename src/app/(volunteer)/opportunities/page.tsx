@@ -84,7 +84,7 @@ export default function OpportunitiesPage() {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <HeaderSection
           title="Browse Events & Field Missions"
-          subtitle="See upcoming No Hunger and relief operations and manage invitation responses."
+          subtitle="See upcoming events and relief operations and manage invitation responses."
         />
 
         <button

@@ -511,7 +511,7 @@ export const initialOpportunities: VolunteerOpportunity[] = [
     id: "opp-6",
     title: "Brain Program Feeding Phase at Sharing Prosperity Center",
     description:
-      "Dear No Hunger Champions, thank you for supporting our scheduled School Feeding Programme at Sharing Prosperity Center. Over 1,200 student meals dispatched.",
+      "Dear Greener basket Champions, thank you for supporting our scheduled School Feeding Programme at Sharing Prosperity Center. Over 1,200 student meals dispatched.",
     status: "COMPLETED",
     program: "School Nutrition",
     date: "Thu, Nov 12, 2026",
