@@ -37,30 +37,25 @@ export function ProgrammesTable({
   return (
     <div className="overflow-x-auto rounded-2xl border border-line bg-white shadow-2xs">
       <table className="w-full text-left text-xs text-basket-darkgreen">
-        <thead className="border-b border-line bg-basket-cream/20 text-[11px] font-medium text-basket-darkgreen/60">
+        <thead className="border-b border-line bg-basket-cream/30 text-[11px] font-bold uppercase tracking-wider text-basket-darkgreen/60">
           <tr>
             {/* <th className="py-3.5 pl-5 pr-3 w-10">
-              <input type="checkbox" aria-label="Select all opportunities" className="rounded border-line accent-basket-darkgreen" />
+              <input
+                type="checkbox"
+                aria-label="Select all applications"
+                className="rounded border-line accent-basket-darkgreen"
+              />
             </th> */}
-            <th className="py-3.5 pl-5 pr-3 text-center font-medium">
-              Opportunity Title
-            </th>
-            <th className="py-3.5 pl-5 pr-3 text-center font-medium">Status</th>
-            <th className="py-3.5 pl-5 pr-3 text-center font-medium">
-              Operational Area
-            </th>
-            <th className="py-3.5 pl-5 pr-3 text-center font-medium">
-              Start Date
-            </th>
-            <th className="py-3.5 pl-5 pr-3 text-center font-medium">
-              End Date
-            </th>
-            <th className="py-3.5 pl-5 pr-3 text-center font-medium">
-              Total Registered
-            </th>
-            <th className="py-3.5 pl-3 pr-5 text-right font-medium">Actions</th>
+            <th className="py-3.5 px-3 text-center">Opportunity Title</th>
+            <th className="py-3.5 px-3 text-center">Status</th>
+            <th className="py-3.5 px-3 text-center">Operational Area</th>
+            <th className="py-3.5 px-3 text-center">Start Date</th>
+            <th className="py-3.5 px-3 text-center">End Date</th>
+            <th className="py-3.5 px-3 text-center">Total Registered</th>
+            <th className="py-3.5 pl-3 pr-5 text-right">Actions</th>
           </tr>
         </thead>
+
         <tbody className="divide-y divide-line/60 ">
           {programmes.map((opp) => (
             <tr

@@ -15,8 +15,10 @@ export type ProgrammeStatus =
   | "Draft"
   | "Completed";
 
-
-export type OperationalArea = "Food Relief" | "Eco-Agriculture" | "School Nutrition";
+export type OperationalArea =
+  | "Food Relief"
+  | "Eco-Agriculture"
+  | "School Nutrition";
 
 export interface AdminOpportunity {
   id: string;
@@ -82,4 +84,44 @@ export interface PipelineTask {
   title: string;
   percent: number;
   stages: TaskStage[];
+}
+
+export interface Applications {
+  id: string;
+  title: string;
+  status: "Accepted" | "Under Review";
+  submitted: string;
+  detail: string;
+  action: string;
+  actionMuted?: boolean;
+}
+
+export type RoleMode = "on-site" | "remote" | "hybrid";
+
+export interface Volunteer {
+  id: string;
+  title: string;
+  tag: string;
+  tagTone: "green" | "sage" | "blue";
+  description: string;
+  location: string;
+  commitment: string;
+  starts: string;
+  mode: RoleMode;
+}
+
+export type ApplicationStatus = "Pending" | "Approved" | "Declined";
+
+export type ApplicationType = "Open" | "Invited";
+
+export interface VolunteerApplication {
+  id: string;
+  volunteerName: string;
+  avatarText: string;
+  avatarBg: string;
+  location: string;
+  targetOpportunity: string;
+  applicationType: ApplicationType;
+  skills: string[];
+  status: ApplicationStatus;
 }

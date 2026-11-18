@@ -53,8 +53,8 @@ export function OpportunityModal({
   const [operationalArea, setOperationalArea] =
     useState<AdminOpportunity["operationalArea"]>("Food Relief");
 
-  const [startDate, setStartDate] = useState<Date>(new Date());
-  const [endDate, setEndDate] = useState<Date>(new Date());
+  const [startDate, setStartDate] = useState<Date | undefined>(undefined);
+  const [endDate, setEndDate] = useState<Date | undefined>(undefined);
 
   const [startTime, setStartTime] = useState("09:00");
 
@@ -69,6 +69,10 @@ export function OpportunityModal({
   const [totalRegistered, setTotalRegistered] = useState(0);
 
   const isEditing = Boolean(initialData);
+
+  useEffect(() => {
+    setStartDate(new Date());
+  }, []);
 
   // Load existing opportunity data
   useEffect(() => {
@@ -106,16 +110,37 @@ export function OpportunityModal({
 
   // Keep custom picker values in sync with startTime
   useEffect(() => {
-    const [hours, minutes] = startTime.split(":");
-    const hour = Number(hours);
+    if (initialData) {
+      setTitle(initialData.title || "");
 
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setSelectedHour(String(hour % 12 || 12).padStart(2, "0"));
+      setOperationalArea(initialData.operationalArea || "Food Relief");
 
-    setSelectedMinute(minutes || "00");
+      setStartDate(
+        initialData.startDate ? new Date(initialData.startDate) : new Date(),
+      );
 
-    setSelectedPeriod(hour >= 12 ? "PM" : "AM");
-  }, [startTime]);
+      setEndDate(
+        initialData.endDate ? new Date(initialData.endDate) : new Date(),
+      );
+
+      setStartTime("09:00");
+
+      setLocation(initialData.location || "");
+      setDescription(initialData.description || "");
+      setTotalRegistered(initialData.totalRegistered || 0);
+    } else {
+      setTitle("");
+      setOperationalArea("Food Relief");
+      setStartDate(new Date());
+      setEndDate(new Date());
+      setStartTime("09:00");
+      setLocation("");
+      setDescription("");
+      setTotalRegistered(0);
+    }
+
+    setTimePickerOpen(false);
+  }, [initialData, isOpen]);
 
   if (!isOpen) return null;
 
@@ -155,8 +180,8 @@ export function OpportunityModal({
     onSave({
       title: title.trim(),
       operationalArea,
-      startDate: format(startDate, "MMM dd, yyyy"),
-      endDate: format(endDate, "MMM dd, yyyy"),
+      startDate: startDate ? format(startDate, "MMM dd, yyyy") : "",
+      endDate: endDate ? format(endDate, "MMM dd, yyyy") : "",
       location:
         location ||
         "LEA Model Primary School Central Compound, Keffi Corridor Hub",
@@ -251,7 +276,7 @@ export function OpportunityModal({
                 <PopoverTrigger className="flex h-10 w-full items-center gap-2 rounded-xl border border-line bg-white px-3 py-2 text-left text-xs text-basket-darkgreen hover:bg-basket-cream/20">
                   <CalendarIcon className="size-3.5 shrink-0 text-basket-darkgreen/40" />
 
-                  <span>{format(startDate, "MMM dd, yyyy")}</span>
+                  <span>{startDate ? format(startDate, "MMM dd, yyyy") : "Start Date"}</span>
                 </PopoverTrigger>
 
                 <PopoverContent className="w-auto p-0" align="start">
@@ -262,7 +287,7 @@ export function OpportunityModal({
                       if (date) {
                         setStartDate(date);
 
-                        if (date > endDate) {
+                        if (!endDate ||date > endDate) {
                           setEndDate(date);
                         }
                       }
@@ -285,7 +310,7 @@ export function OpportunityModal({
                 <PopoverTrigger className="flex w-full items-center gap-2 rounded-xl border border-line h-10 bg-white px-3 py-2 text-left text-xs text-basket-darkgreen hover:bg-basket-cream/20">
                   <CalendarIcon className="size-3.5 shrink-0 text-basket-darkgreen/40" />
 
-                  <span>{format(endDate, "MMM dd, yyyy")}</span>
+                  <span>{endDate ? format(endDate, "MMM dd, yyyy") : "End Date"}</span>
                 </PopoverTrigger>
 
                 <PopoverContent className="w-auto p-0" align="start">
@@ -296,7 +321,7 @@ export function OpportunityModal({
                       if (date) setEndDate(date);
                     }}
                     disabled={{
-                      before: startDate,
+                      before: startDate ?? new Date(),
                     }}
                   />
                 </PopoverContent>

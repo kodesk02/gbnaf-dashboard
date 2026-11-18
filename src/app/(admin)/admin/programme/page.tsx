@@ -1,14 +1,7 @@
-
 "use client";
 
 import { useMemo, useState } from "react";
-import {
-  Search,
-  Plus,
-  FolderKanban,
-  Users,
-  CheckCircle2,
-} from "lucide-react";
+import { Search, Plus, FolderKanban, Users, CheckCircle2 } from "lucide-react";
 
 import { AdminOpportunity } from "@/types/admin";
 import { initialProgrammes } from "@/lib/data";
@@ -125,16 +118,12 @@ export default function AdminProgrammesPage() {
     setProgrammes((prev) => prev.filter((p) => p.id !== id));
 
     // Close details modal if its opportunity is deleted
-    setSelectedOpportunity((prev) =>
-      prev?.id === id ? null : prev,
-    );
+    setSelectedOpportunity((prev) => (prev?.id === id ? null : prev));
   };
 
   // Open View Details modal
   const handleView = (id: string) => {
-    const opportunity = programmes.find(
-      (programme) => programme.id === id,
-    );
+    const opportunity = programmes.find((programme) => programme.id === id);
 
     if (opportunity) {
       setSelectedOpportunity(opportunity);
@@ -143,9 +132,7 @@ export default function AdminProgrammesPage() {
 
   // Get the latest version of the selected opportunity
   const currentSelectedOpportunity = selectedOpportunity
-    ? programmes.find(
-        (p) => p.id === selectedOpportunity.id,
-      ) ?? null
+    ? (programmes.find((p) => p.id === selectedOpportunity.id) ?? null)
     : null;
 
   return (
@@ -168,56 +155,59 @@ export default function AdminProgrammesPage() {
       </div>
 
       {/* KPI Overview Cards */}
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <div className="flex items-center gap-3.5 rounded-2xl border border-line bg-white p-4 shadow-2xs">
-          <div className="grid size-10 place-items-center rounded-xl bg-basket-cream/50 text-basket-darkgreen">
-            <FolderKanban className="size-4" />
-          </div>
-
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="flex items-center justify-between rounded-2xl border border-line bg-white p-5 shadow-2xs">
           <div>
-            <p className="text-lg font-bold leading-none text-basket-darkgreen">
-              {programmes.length}
-            </p>
-            <p className="mt-1 text-[11px] font-medium text-basket-darkgreen/55">
+            <p className="text-[11px] font-semibold uppercase tracking-wider text-basket-darkgreen/50">
               Total Programmes
             </p>
+            <p className="mt-1 text-2xl font-bold text-basket-darkgreen">
+              {programmes.length}{" "}
+              <span className="text-sm font-normal text-basket-darkgreen/60">
+                Programmes
+              </span>
+            </p>
+          </div>
+          <div className="grid size-12 place-items-center rounded-2xl bg-basket-cream/50 text-basket-darkgreen">
+            <FolderKanban className="size-5" />
           </div>
         </div>
 
-        <div className="flex items-center gap-3.5 rounded-2xl border border-line bg-white p-4 shadow-2xs">
-          <div className="grid size-10 place-items-center rounded-xl bg-emerald-50 text-emerald-700">
-            <CheckCircle2 className="size-4" />
-          </div>
-
+        <div className="flex items-center justify-between rounded-2xl border border-line bg-white p-5 shadow-2xs">
           <div>
-            <p className="text-lg font-bold leading-none text-basket-darkgreen">
+            <p className="text-[11px] font-semibold uppercase tracking-wider text-basket-darkgreen/50">
+              Steady / Active
+            </p>
+            <p className="mt-1 text-2xl font-bold text-basket-darkgreen">
               {
                 programmes.filter(
                   (p) => p.status === "Active" || p.status === "Steady",
                 ).length
-              }
+              }{" "}
+              <span className="text-sm font-normal text-basket-darkgreen/60">
+                Active
+              </span>
             </p>
-            <p className="mt-1 text-[11px] font-medium text-basket-darkgreen/55">
-              Steady / Active
-            </p>
+          </div>
+          <div className="grid size-12 place-items-center rounded-2xl bg-emerald-50 text-emerald-700">
+            <CheckCircle2 className="size-5" />
           </div>
         </div>
 
-        <div className="flex items-center gap-3.5 rounded-2xl border border-line bg-white p-4 shadow-2xs">
-          <div className="grid size-10 place-items-center rounded-xl bg-amber-50 text-amber-700">
-            <Users className="size-4" />
-          </div>
-
+        <div className="flex items-center justify-between rounded-2xl border border-line bg-white p-5 shadow-2xs">
           <div>
-            <p className="text-lg font-bold leading-none text-basket-darkgreen">
-              {programmes.reduce(
-                (acc, curr) => acc + curr.totalRegistered,
-                0,
-              )}
-            </p>
-            <p className="mt-1 text-[11px] font-medium text-basket-darkgreen/55">
+            <p className="text-[11px] font-semibold uppercase tracking-wider text-basket-darkgreen/50">
               Pending Events
             </p>
+            <p className="mt-1 text-2xl font-bold text-basket-darkgreen">
+              {programmes.reduce((acc, curr) => acc + curr.totalRegistered, 0)}{" "}
+              <span className="text-sm font-normal text-basket-darkgreen/60">
+                Events
+              </span>
+            </p>
+          </div>
+          <div className="grid size-12 place-items-center rounded-2xl bg-amber-50 text-amber-700">
+            <Users className="size-5" />
           </div>
         </div>
       </div>
@@ -317,9 +307,7 @@ export default function AdminProgrammesPage() {
       >
         <DialogContent className="max-h-[90vh] max-w-3xl overflow-y-auto">
           {currentSelectedOpportunity && (
-            <OpportunityDetails
-              opportunity={currentSelectedOpportunity}
-            />
+            <OpportunityDetails opportunity={currentSelectedOpportunity} />
           )}
         </DialogContent>
       </Dialog>

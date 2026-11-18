@@ -7,6 +7,9 @@ import {
   OperationalVolunteerStat,
   PipelineTask,
   AdminOpportunity,
+  Applications,
+  Volunteer,
+  VolunteerApplication,
 } from "@/types/admin";
 import { VolunteerOpportunity } from "@/types/volunteer";
 
@@ -50,19 +53,8 @@ export const upcomingShifts = [
   },
 ];
 
-export type RoleMode = "on-site" | "remote" | "hybrid";
 
-export const volunteerRoles: {
-  id: string;
-  title: string;
-  tag: string;
-  tagTone: "green" | "sage" | "blue";
-  description: string;
-  location: string;
-  commitment: string;
-  starts: string;
-  mode: RoleMode;
-}[] = [
+export const volunteerRoles: Volunteer[] = [
   {
     id: "community-health-survey-lead",
     title: "Community Health Survey Lead",
@@ -101,15 +93,7 @@ export const volunteerRoles: {
   },
 ];
 
-export const applications: {
-  id: string;
-  title: string;
-  status: "Accepted" | "Under Review";
-  submitted: string;
-  detail: string;
-  action: string;
-  actionMuted?: boolean;
-}[] = [
+export const applications: Applications[] = [
   {
     id: "mobile-clinic-dispatch",
     title: "Mobile Clinic Dispatch Assistant",
@@ -534,5 +518,74 @@ export const initialOpportunities: VolunteerOpportunity[] = [
     time: "Complete",
     location: "Sharing Prosperity Community Pavilion, Gwagwalada, FCT",
     hasCertificate: true,
+  },
+];
+
+export const initialApplications: VolunteerApplication[] = [
+  {
+    id: "app-1",
+    volunteerName: "M.B. Adamu",
+    avatarText: "M",
+    avatarBg: "bg-sky-100 text-sky-800",
+    location: "Area 8, FCT, Abuja",
+    targetOpportunity: "TFAP Vertical Backyard Farming",
+    applicationType: "Open",
+    skills: ["Eco-Agriculture", "Data Collection"],
+    status: "Pending",
+  },
+  {
+    id: "app-2",
+    volunteerName: "Chioma Godfrey",
+    avatarText: "C",
+    avatarBg: "bg-amber-100 text-amber-800",
+    location: "Abuja, FCT, Nigeria",
+    targetOpportunity: "NoHUNGERWORK Walk & Rally",
+    applicationType: "Invited",
+    skills: ["Community Outreach", "Advocacy"],
+    status: "Pending",
+  },
+  {
+    id: "app-3",
+    volunteerName: "Lucky Sunday",
+    avatarText: "L",
+    avatarBg: "bg-rose-100 text-rose-800",
+    location: "Abuja Central",
+    targetOpportunity: "TFAP Food Sorting & Packing",
+    applicationType: "Open",
+    skills: ["Food Packing", "Team Lead"],
+    status: "Approved",
+  },
+  {
+    id: "app-4",
+    volunteerName: "Godfrey Chioma",
+    avatarText: "G",
+    avatarBg: "bg-emerald-100 text-emerald-800",
+    location: "FCT, Abuja, Nigeria",
+    targetOpportunity: "BRAIN School Meals Program",
+    applicationType: "Open",
+    skills: ["School Nutrition", "Project Management"],
+    status: "Pending",
+  },
+  {
+    id: "app-5",
+    volunteerName: "M.B. Adamu",
+    avatarText: "M",
+    avatarBg: "bg-sky-100 text-sky-800",
+    location: "Abuja, FCT, Nigeria",
+    targetOpportunity: "NoHUNGERWORK Walk & Rally",
+    applicationType: "Invited",
+    skills: ["Community Outreach", "Advocacy"],
+    status: "Pending",
+  },
+  {
+    id: "app-6",
+    volunteerName: "Chioma Godfrey",
+    avatarText: "C",
+    avatarBg: "bg-amber-100 text-amber-800",
+    location: "FCT, Abuja, Nigeria",
+    targetOpportunity: "NoHUNGERWORK Walk & Farming",
+    applicationType: "Open",
+    skills: ["School Nutrition", "Project Management"],
+    status: "Pending",
   },
 ];
