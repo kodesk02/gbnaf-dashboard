@@ -17,12 +17,12 @@ interface OpportunityDetailsProps {
 }
 
 const statusStyles: Record<string, string> = {
-  Active: "bg-emerald-50 text-emerald-700",
-  Pending: "bg-amber-50 text-amber-700",
-  Steady: "bg-blue-50 text-blue-700",
-  Delayed: "bg-rose-50 text-rose-700",
-  Draft: "bg-gray-100 text-gray-600",
-  Completed: "bg-purple-50 text-purple-700",
+  ACTIVE: "bg-emerald-50 border border-emerald-200 text-emerald-700",
+  PENDING: "bg-amber-50 border border-amber-200 text-amber-700",
+  STEADY: "bg-blue-50 border border-blue-200 text-blue-700",
+  DELAYED: "bg-rose-50 border border-rose-200 text-rose-700",
+  DRAFT: "bg-gray-100 border border-gray-200 text-gray-600",
+  COMPLETED: "bg-purple-50 border border-purple-200 text-purple-700",
 };
 
 export function OpportunityDetails({

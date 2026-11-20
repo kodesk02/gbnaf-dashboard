@@ -9,9 +9,8 @@ import {
   AdminOpportunity,
   Applications,
   Volunteer,
-  VolunteerApplication,
 } from "@/types/admin";
-import { VolunteerOpportunity } from "@/types/volunteer";
+import { VolunteerApplication, VolunteerApplicationRecord, VolunteerOpportunity } from "@/types/volunteer";
 
 export const currentUser = {
   firstName: "Kitan",
@@ -76,7 +75,7 @@ export const volunteerRoles: Volunteer[] = [
       "Package non-perishable grain shipments and review logistics manifests.",
     location: "Apapa Hub",
     commitment: "4 hrs / shift",
-    starts: "Ongoing",
+    starts: "ONGOING",
     mode: "on-site",
   },
   {
@@ -97,7 +96,7 @@ export const applications: Applications[] = [
   {
     id: "mobile-clinic-dispatch",
     title: "Mobile Clinic Dispatch Assistant",
-    status: "Accepted",
+    status: "ACCEPTED",
     submitted: "Nov 02, 2026",
     detail: "Coordinator: Dr. Adebayo",
     action: "View Onboarding",
@@ -105,7 +104,7 @@ export const applications: Applications[] = [
   {
     id: "outreach-translator-yoruba",
     title: "Regional Outreach Translator (Yoruba)",
-    status: "Under Review",
+    status: "PENDING",
     submitted: "Nov 06, 2026",
     detail: "Screening Stage: Document Verification",
     action: "Est. 2 days",
@@ -114,7 +113,7 @@ export const applications: Applications[] = [
   {
     id: "food-safety-inspector",
     title: "Food Safety & Hygiene Inspector",
-    status: "Accepted",
+    status: "ACCEPTED",
     submitted: "Oct 28, 2026",
     detail: "Assigned Area: Lagos Mainland",
     action: "Duty Sheet",
@@ -125,7 +124,7 @@ export const initialProgrammes: AdminOpportunity[] = [
   {
     id: "opp-1",
     title: "Opportunity Title",
-    status: "Active",
+    status: "ACTIVE",
     operationalArea: "Food Relief",
     startDate: "Nov 15, 2026",
     endDate: "Nov 15, 2026",
@@ -137,7 +136,7 @@ export const initialProgrammes: AdminOpportunity[] = [
   {
     id: "opp-2",
     title: "Opportunity Title",
-    status: "Pending",
+    status: "PENDING",
     operationalArea: "Eco-Agriculture",
     startDate: "Nov 15, 2026",
     endDate: "Nov 15, 2026",
@@ -151,7 +150,7 @@ export const initialProgrammes: AdminOpportunity[] = [
   {
     id: "opp-3",
     title: "Opportunity Title",
-    status: "Pending",
+    status: "PENDING",
     operationalArea: "School Nutrition",
     startTime: '6',
     startDate: "Nov 15, 2026",
@@ -166,7 +165,7 @@ export const initialProgrammes: AdminOpportunity[] = [
   {
     id: "opp-4",
     title: "Opportunity Title",
-    status: "Completed",
+    status: "COMPLETED",
     operationalArea: "Food Relief",
     startTime: '6',
     startDate: "Nov 15, 2026",
@@ -181,7 +180,7 @@ export const initialProgrammes: AdminOpportunity[] = [
   {
     id: "opp-5",
     title: "Opportunity Title",
-    status: "Draft",
+    status: "DRAFT",
     location:
       "Corporate 14, Dubai International Market, behind Kaura Market, Games Village, Abuja (NHFB Office)",
     description:
@@ -196,7 +195,7 @@ export const initialProgrammes: AdminOpportunity[] = [
   {
     id: "opp-6",
     title: "Opportunity Title",
-    status: "Draft",
+    status: "DRAFT",
     location:
       "Corporate 14, Dubai International Market, behind Kaura Market, Games Village, Abuja (NHFB Office)",
     description:
@@ -211,7 +210,7 @@ export const initialProgrammes: AdminOpportunity[] = [
   {
     id: "opp-7",
     title: "Opportunity Title",
-    status: "Draft",
+    status: "DRAFT",
     location:
       "Corporate 14, Dubai International Market, behind Kaura Market, Games Village, Abuja (NHFB Office)",
     description:
@@ -226,7 +225,7 @@ export const initialProgrammes: AdminOpportunity[] = [
   {
     id: "opp-8",
     title: "Opportunity Title",
-    status: "Pending",
+    status: "PENDING",
     operationalArea: "School Nutrition",
     location:
       "Corporate 14, Dubai International Market, behind Kaura Market, Games Village, Abuja (NHFB Office)",
@@ -246,7 +245,7 @@ export const initialProgrammes: AdminOpportunity[] = [
     description:
       "This is a sample description for the opportunity. It provides an overview of the opportunity's purpose, goals, and activities.",
 
-    status: "Completed",
+    status: "COMPLETED",
     operationalArea: "Food Relief",
     startTime: '6',
     startDate: "Nov 15, 2026",
@@ -260,7 +259,7 @@ export const initialProgrammes: AdminOpportunity[] = [
       "Corporate 14, Dubai International Market, behind Kaura Market, Games Village, Abuja (NHFB Office)",
     description:
       "This is a sample description for the opportunity. It provides an overview of the opportunity's purpose, goals, and activities.",
-    status: "Completed",
+    status: "COMPLETED",
     operationalArea: "Eco-Agriculture",
     startTime: '6',
     startDate: "Nov 15, 2026",
@@ -275,7 +274,7 @@ export const activeProgrammesData: ActiveProgramme[] = [
     title: "Youth Mentoring",
     description: "Cohort guidance, developmental community...",
     progress: 75,
-    status: "Completed",
+    status: "COMPLETED",
     iconName: "Users",
   },
   {
@@ -284,7 +283,7 @@ export const activeProgrammesData: ActiveProgramme[] = [
     description:
       "Emergency food supplies, parcel delivery and nutritional ai...",
     progress: 45,
-    status: "Pending",
+    status: "PENDING",
     iconName: "ShoppingBag",
   },
   {
@@ -292,7 +291,7 @@ export const activeProgrammesData: ActiveProgramme[] = [
     title: "Eco-Cleanups",
     description: "Environmental remediation, plastic reclamation and drain...",
     progress: 68,
-    status: "Steady",
+    status: "STEADY",
     iconName: "Globe",
   },
   {
@@ -300,7 +299,7 @@ export const activeProgrammesData: ActiveProgramme[] = [
     title: "Resource Mobilization",
     description: "Material sorting, urban warehouse sorting, and...",
     progress: 32,
-    status: "Delayed",
+    status: "DELAYED",
     iconName: "RefreshCw",
   },
 ];
@@ -461,7 +460,7 @@ export const initialOpportunities: VolunteerOpportunity[] = [
       "Post-Implementation Beneficiary Assessment Survey Vertical Backyard Farming (TFAP)",
     description:
       "Join us on Friday, August 21st, 2026, as we conduct a Post-Implementation Beneficiary Assessment Survey for our Vertical Backyard Farming cohort.",
-    status: "Pending",
+    status: "PENDING",
     program: "Eco-Agriculture",
     date: "Fri, Aug 21, 2026",
     time: "10:00 AM",
@@ -474,7 +473,7 @@ export const initialOpportunities: VolunteerOpportunity[] = [
     title: "TFAP FOOD SORTING AND PACKING EXERCISE (CYCLE 2)",
     description:
       "Join us for a volunteer food sorting and packing session for the TFAP Program. Support logistics, dry rations categorization, and parcel seals.",
-    status: "Ongoing",
+    status: "ONGOING",
     program: "Food Relief",
     date: "Thu, Sep 17, 2026",
     time: "08:30 AM",
@@ -483,10 +482,10 @@ export const initialOpportunities: VolunteerOpportunity[] = [
   },
   {
     id: "opp-4",
-    title: "NoHUNGERWORK 2026 Annual Awareness Walk & Rally",
+    title: "GreenerBasket 2026 Annual Awareness Walk & Rally",
     description:
       "Join us on October 2026 in the vibrant Federal Capital Territory, Abuja, Nigeria as we celebrate our community impact and raise food sovereignty awareness.",
-    status: "Ongoing",
+    status: "ONGOING",
     program: "Advocacy Walk",
     date: "Sat, Oct 17, 2026",
     time: "07:00 AM",
@@ -499,7 +498,7 @@ export const initialOpportunities: VolunteerOpportunity[] = [
       "BRAIN (Balanced Resources for Academic Instruction & Nourishing School Meals)",
     description:
       "We are inviting you to join us for our community kitchen & breakfast logistics setup across primary educational clusters in Nasarawa / FCT boundary.",
-    status: "Pending",
+    status: "PENDING",
     program: "School Nutrition",
     date: "Mon, Nov 02, 2026",
     time: "06:45 AM",
@@ -529,9 +528,9 @@ export const initialApplications: VolunteerApplication[] = [
     avatarBg: "bg-sky-100 text-sky-800",
     location: "Area 8, FCT, Abuja",
     targetOpportunity: "TFAP Vertical Backyard Farming",
-    applicationType: "Open",
+    applicationType: "OPEN",
     skills: ["Eco-Agriculture", "Data Collection"],
-    status: "Pending",
+    status: "PENDING",
   },
   {
     id: "app-2",
@@ -539,10 +538,10 @@ export const initialApplications: VolunteerApplication[] = [
     avatarText: "C",
     avatarBg: "bg-amber-100 text-amber-800",
     location: "Abuja, FCT, Nigeria",
-    targetOpportunity: "NoHUNGERWORK Walk & Rally",
-    applicationType: "Invited",
+    targetOpportunity: "GreenerBasket Walk & Rally",
+    applicationType: "INVITED",
     skills: ["Community Outreach", "Advocacy"],
-    status: "Pending",
+    status: "PENDING",
   },
   {
     id: "app-3",
@@ -551,9 +550,9 @@ export const initialApplications: VolunteerApplication[] = [
     avatarBg: "bg-rose-100 text-rose-800",
     location: "Abuja Central",
     targetOpportunity: "TFAP Food Sorting & Packing",
-    applicationType: "Open",
+    applicationType: "OPEN",
     skills: ["Food Packing", "Team Lead"],
-    status: "Approved",
+    status: "APPROVED",
   },
   {
     id: "app-4",
@@ -562,9 +561,9 @@ export const initialApplications: VolunteerApplication[] = [
     avatarBg: "bg-emerald-100 text-emerald-800",
     location: "FCT, Abuja, Nigeria",
     targetOpportunity: "BRAIN School Meals Program",
-    applicationType: "Open",
+    applicationType: "OPEN",
     skills: ["School Nutrition", "Project Management"],
-    status: "Pending",
+    status: "PENDING",
   },
   {
     id: "app-5",
@@ -572,10 +571,10 @@ export const initialApplications: VolunteerApplication[] = [
     avatarText: "M",
     avatarBg: "bg-sky-100 text-sky-800",
     location: "Abuja, FCT, Nigeria",
-    targetOpportunity: "NoHUNGERWORK Walk & Rally",
-    applicationType: "Invited",
+    targetOpportunity: "GreenerBasket Walk & Rally",
+    applicationType: "INVITED",
     skills: ["Community Outreach", "Advocacy"],
-    status: "Pending",
+    status: "PENDING",
   },
   {
     id: "app-6",
@@ -583,9 +582,55 @@ export const initialApplications: VolunteerApplication[] = [
     avatarText: "C",
     avatarBg: "bg-amber-100 text-amber-800",
     location: "FCT, Abuja, Nigeria",
-    targetOpportunity: "NoHUNGERWORK Walk & Farming",
-    applicationType: "Open",
+    targetOpportunity: "GreenerBasket Walk & Farming",
+    applicationType: "OPEN",
     skills: ["School Nutrition", "Project Management"],
-    status: "Pending",
+    status: "PENDING",
+  },
+];
+
+export const initialVolunteerApplications: VolunteerApplicationRecord[] = [
+  {
+    id: "app-101",
+    programmeTitle: "GreenerBasket 2026",
+    status: "REJECTED",
+    channel: "OPEN_CALL",
+    location: "Lagos Central Civic Grounds",
+    scheduleLabel: "Oct 14, 2025 • 08:00 – 16:00",
+    submittedAt: "Oct 02, 2025",
+    pathway: "Show-up Volunteer",
+    coordinatorNote: "Shift slots for this venue reached full capacity prior to review.",
+  },
+  {
+    id: "app-102",
+    programmeTitle: "BRAIN School Meals Programme",
+    status: "REJECTED",
+    channel: "OPEN_CALL",
+    location: "Garki Area 8 Hub, FCT Abuja",
+    scheduleLabel: "Oct 21, 2025 • 07:30 – 13:00",
+    submittedAt: "Oct 10, 2025",
+    pathway: "Show-up Volunteer",
+    coordinatorNote: "All morning kitchen shifts were filled for that date.",
+  },
+  {
+    id: "app-103",
+    programmeTitle: "Brain Programme – Supplementary",
+    status: "REJECTED",
+    channel: "OPEN_CALL",
+    location: "Wuse II Community Centre, FCT Abuja",
+    scheduleLabel: "Oct 28, 2025 • 09:00 – 15:00",
+    submittedAt: "Oct 15, 2025",
+    pathway: "Volunteer Development",
+    coordinatorNote: "Cohort placement was closed before scheduling.",
+  },
+  {
+    id: "app-104",
+    programmeTitle: "BRAIN School Meals Programme",
+    status: "ACCEPTED",
+    channel: "DIRECT_INVITE",
+    location: "Abuja Central Distribution Point",
+    scheduleLabel: "Nov 04, 2025 • 08:00 – 14:00",
+    submittedAt: "Oct 22, 2025",
+    pathway: "Show-up Volunteer",
   },
 ];

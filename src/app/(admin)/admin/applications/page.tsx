@@ -2,10 +2,10 @@
 
 import { useMemo, useState } from "react";
 import { Search, Clock, CheckCircle2, XCircle } from "lucide-react";
-import { VolunteerApplication } from "@/types/admin";
 import { ApplicationsTable } from "./ApplicationsTable";
 import { initialApplications } from "@/lib/data";
 import { HeaderSection } from "@/components/layout/HeadSection";
+import { VolunteerApplication } from "@/types/volunteer";
 
 type FilterTab = "all" | "pending" | "approved" | "declined";
 
@@ -16,13 +16,13 @@ export default function AdminApplicationsPage() {
   const [activeTab, setActiveTab] = useState<FilterTab>("all");
 
   const pendingCount = applications.filter(
-    (a) => a.status === "Pending",
+    (a) => a.status === "PENDING",
   ).length;
   const approvedCount = applications.filter(
-    (a) => a.status === "Approved",
+    (a) => a.status === "APPROVED",
   ).length;
   const declinedCount = applications.filter(
-    (a) => a.status === "Declined",
+    (a) => a.status === "DECLINED",
   ).length;
 
   const filteredApplications = useMemo(() => {
@@ -31,10 +31,10 @@ export default function AdminApplicationsPage() {
         activeTab === "all"
           ? true
           : activeTab === "pending"
-            ? app.status === "Pending"
+            ? app.status === "PENDING"
             : activeTab === "approved"
-              ? app.status === "Approved"
-              : app.status === "Declined";
+              ? app.status === "APPROVED"
+              : app.status === "DECLINED";
 
       const q = searchQuery.trim().toLowerCase();
       const matchesSearch =
@@ -71,7 +71,7 @@ export default function AdminApplicationsPage() {
         <div className="flex items-center justify-between rounded-2xl border border-line bg-white p-5 shadow-2xs">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-wider text-basket-darkgreen/50">
-              Pending Review
+              Pending
             </p>
             <p className="mt-1 text-2xl font-bold text-basket-darkgreen">
               {pendingCount}{" "}
@@ -132,7 +132,8 @@ export default function AdminApplicationsPage() {
                 : "text-basket-darkgreen/60 hover:text-basket-darkgreen"
             }`}
           >
-            All ({applications.length})
+            All 
+            {/* ({applications.length}) */}
           </button>
           <button
             type="button"
@@ -143,7 +144,8 @@ export default function AdminApplicationsPage() {
                 : "text-basket-darkgreen/60 hover:text-basket-darkgreen"
             }`}
           >
-            Pending Review ({pendingCount})
+            Pending 
+            {/* ({pendingCount}) */}
           </button>
           <button
             type="button"
@@ -154,7 +156,8 @@ export default function AdminApplicationsPage() {
                 : "text-basket-darkgreen/60 hover:text-basket-darkgreen"
             }`}
           >
-            Approved ({approvedCount})
+            Approved 
+            {/* ({approvedCount}) */}
           </button>
           <button
             type="button"

@@ -62,7 +62,7 @@ export default function OpportunitiesPage() {
           {
             ...item,
             isInvited: false,
-            status: "Ongoing",
+            status: "ONGOING",
             isRegistered: true,
           },
         ];
@@ -193,7 +193,8 @@ export default function OpportunitiesPage() {
                   : "text-basket-darkgreen/60 hover:text-basket-darkgreen"
               }`}
             >
-              All ({opportunities.length})
+              All 
+              {/* ({opportunities.length}) */}
             </button>
             <button
               type="button"
@@ -205,11 +206,11 @@ export default function OpportunitiesPage() {
               }`}
             >
               <span>Invited</span>
-              {invitesCount > 0 && (
+              {/* {invitesCount > 0 && (
                 <span className="rounded-full bg-amber-100 px-1.5 py-0.2 text-[10px] font-bold text-amber-800">
                   {invitesCount}
                 </span>
-              )}
+              )} */}
             </button>
             <button
               type="button"

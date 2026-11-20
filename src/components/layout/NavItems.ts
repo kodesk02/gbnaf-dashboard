@@ -23,15 +23,16 @@ export type NavItem = {
 export const volunteerNavItems: NavItem[] = [
   { label: "Dashboard", href: "/dashboard", icon: LayoutGrid },
   { label: "Opportunities", href: "/opportunities", icon: Users },
+  { label: "Applications", href: "/applications", icon: FileText },
   { label: "Certificates", href: "/certificates", icon: Award },
   { label: "Schedule", href: "/schedule", icon: CalendarDays },
-  { label: "Applications", href: "/applications", icon: FileText },
   { label: "Settings", href: "/settings", icon: Settings },
 ];
 
 export const adminNavItems: NavItem[] = [
   { label: "Overview", href: "/admin/dashboard", icon: LayoutGrid },
   { label: "Programmes", href: "/admin/programme", icon: Flag },
+  { label: "Applications", href: "/admin/applications", icon: FileText },
   { label: "Activities", href: "/admin/activities", icon: CalendarDays },
   { label: "Tasks", href: "/admin/tasks", icon: CheckSquare },
   { label: "Approvals", href: "/admin/approvals", icon: ShieldCheck, badge: 3 },

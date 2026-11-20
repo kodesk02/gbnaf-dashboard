@@ -12,12 +12,12 @@ interface ProgrammesTableProps {
 }
 
 const statusBadgeStyles: Record<AdminOpportunity["status"], string> = {
-  Active: "bg-emerald-50 text-emerald-700 border border-emerald-200",
-  Pending: "bg-amber-50 text-amber-700 border border-amber-200",
-  Completed: "bg-emerald-50 text-emerald-700 border border-emerald-200",
-  Steady: "bg-emerald-50 text-emerald-700 border border-emerald-200",
-  Draft: "bg-slate-100 text-slate-600 border border-slate-200",
-  Delayed: "bg-rose-50 text-rose-700 border border-rose-200",
+  ACTIVE: "bg-emerald-50 text-emerald-700 border border-emerald-200",
+  PENDING: "bg-amber-50 text-amber-700 border border-amber-200",
+  COMPLETED: "bg-emerald-50 text-emerald-700 border border-emerald-200",
+  STEADY: "bg-emerald-50 text-emerald-700 border border-emerald-200",
+  DRAFT: "bg-slate-100 text-slate-600 border border-slate-200",
+  DELAYED: "bg-rose-50 text-rose-700 border border-rose-200",
 };
 
 const areaBadgeStyles: Record<AdminOpportunity["operationalArea"], string> = {

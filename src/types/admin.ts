@@ -8,12 +8,12 @@ export type ActiveProgramme = {
 };
 
 export type ProgrammeStatus =
-  | "Active"
-  | "Pending"
-  | "Steady"
-  | "Delayed"
-  | "Draft"
-  | "Completed";
+  | "ACTIVE"
+  | "PENDING"
+  | "STEADY"
+  | "DELAYED"
+  | "DRAFT"
+  | "COMPLETED";
 
 export type OperationalArea =
   | "Food Relief"
@@ -89,7 +89,7 @@ export interface PipelineTask {
 export interface Applications {
   id: string;
   title: string;
-  status: "Accepted" | "Under Review";
+  status: "ACCEPTED" | "PENDING";
   submitted: string;
   detail: string;
   action: string;
@@ -110,18 +110,3 @@ export interface Volunteer {
   mode: RoleMode;
 }
 
-export type ApplicationStatus = "Pending" | "Approved" | "Declined";
-
-export type ApplicationType = "Open" | "Invited";
-
-export interface VolunteerApplication {
-  id: string;
-  volunteerName: string;
-  avatarText: string;
-  avatarBg: string;
-  location: string;
-  targetOpportunity: string;
-  applicationType: ApplicationType;
-  skills: string[];
-  status: ApplicationStatus;
-}

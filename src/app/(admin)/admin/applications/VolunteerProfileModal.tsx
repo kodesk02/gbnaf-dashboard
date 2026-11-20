@@ -1,6 +1,6 @@
 "use client";
 
-import { VolunteerApplication } from "@/types/admin";
+import { VolunteerApplication } from "@/types/volunteer";
 import { X, Mail, MapPin, Clock, Calendar, Award, CheckCircle2, Share2, Copy } from "lucide-react";
 
 interface VolunteerProfileModalProps {

@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { MoreHorizontal, Check, X, User } from "lucide-react";
-import { VolunteerApplication } from "@/types/admin";
 import { VolunteerProfileModal } from "./VolunteerProfileModal";
+import { VolunteerApplication } from "@/types/volunteer";
 
 interface ApplicationsTableProps {
   applications: VolunteerApplication[];
@@ -11,15 +11,15 @@ interface ApplicationsTableProps {
 }
 
 const statusBadgeStyles: Record<VolunteerApplication["status"], string> = {
-  Pending: "bg-amber-50 text-amber-700 border border-amber-200",
-  Approved: "bg-emerald-50 text-emerald-700 border border-emerald-200",
-  Declined: "bg-rose-50 text-rose-700 border border-rose-200",
+  PENDING: "bg-amber-50 text-amber-700 border border-amber-200",
+  APPROVED: "bg-emerald-50 text-emerald-700 border border-emerald-200",
+  DECLINED: "bg-rose-50 text-rose-700 border border-rose-200",
 };
 
 const typeBadgeStyles: Record<VolunteerApplication["applicationType"], string> =
   {
-    Open: "bg-emerald-50 text-emerald-700 border border-emerald-200",
-    Invited: "bg-amber-50 text-amber-700 border border-amber-200",
+    OPEN: "bg-emerald-50 text-emerald-700 border border-emerald-200",
+    INVITED: "bg-amber-50 text-amber-700 border border-amber-200",
   };
 
 export function ApplicationsTable({
@@ -126,7 +126,7 @@ export function ApplicationsTable({
                     <button
                       type="button"
                       onClick={() => {
-                        onUpdateStatus(app.id, "Approved");
+                        onUpdateStatus(app.id, "APPROVED");
                         setActiveMenuId(null);
                       }}
                       className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-medium text-emerald-700 hover:bg-emerald-50"
@@ -137,7 +137,7 @@ export function ApplicationsTable({
                     <button
                       type="button"
                       onClick={() => {
-                        onUpdateStatus(app.id, "Declined");
+                        onUpdateStatus(app.id, "DECLINED");
                         setActiveMenuId(null);
                       }}
                       className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-medium text-rose-600 hover:bg-rose-50"

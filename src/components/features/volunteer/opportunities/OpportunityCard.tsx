@@ -22,9 +22,9 @@ const programBadgeStyles: Record<VolunteerOpportunity["program"], string> = {
 };
 
 const statusBadgeStyles: Record<VolunteerOpportunity["status"], string> = {
-  COMPLETED: "bg-emerald-50 text-emerald-700",
-  Pending: "bg-amber-50 text-amber-700",
-  Ongoing: "bg-blue-50 text-blue-700",
+  COMPLETED: "border-emerald-200 border bg-emerald-50 text-emerald-700",
+  PENDING: "border-amber-200 border bg-amber-50 text-amber-700",
+  ONGOING: "border-blue-200 border bg-blue-50 text-blue-700",
 };
 
 export function OpportunityCard({
@@ -126,7 +126,7 @@ export function OpportunityCard({
           </div>
         )}
 
-        {!isInvited && status === "Ongoing" && (
+        {!isInvited && status === "ONGOING" && (
           <button
             type="button"
             onClick={() => onRegister(id)}

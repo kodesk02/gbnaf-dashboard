@@ -6,7 +6,7 @@ export function OutstandingReportsSection({ reports }: { reports: OutstandingRep
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
           <h2 className="text-base font-bold tracking-wider text-black/80">Outstanding Reports</h2>
-          <span className="rounded-full bg-amber-50 px-2.5 py-0.5 text-[11px] font-bold text-amber-700">3 Pending Review</span>
+          <span className="rounded-full bg-amber-50 px-2.5 py-0.5 text-[11px] font-bold text-amber-700">3 Pending</span>
         </div>
       </div>
 

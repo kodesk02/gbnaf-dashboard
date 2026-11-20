@@ -37,7 +37,7 @@ interface OpportunityModalProps {
     location: string;
     totalRegistered: number;
     description: string;
-    status: "Draft" | "Active";
+    status: "DRAFT" | "ACTIVE";
   }) => void;
   initialData?: AdminOpportunity | null;
 }
@@ -174,7 +174,7 @@ export function OpportunityModal({
     return `${String(displayHour).padStart(2, "0")}:${minutes} ${period}`;
   };
 
-  const handleAction = (status: "Draft" | "Active") => {
+  const handleAction = (status: "DRAFT" | "ACTIVE") => {
     if (!title.trim()) return;
 
     onSave({
@@ -559,7 +559,7 @@ export function OpportunityModal({
           <div className="flex items-center justify-end gap-3 border-t border-line pt-4">
             <button
               type="button"
-              onClick={() => handleAction("Draft")}
+              onClick={() => handleAction("DRAFT")}
               className="rounded-xl border border-line bg-white px-5 py-2.5 font-semibold text-basket-darkgreen shadow-2xs transition-colors hover:bg-basket-cream/40"
             >
               Save as Draft
@@ -567,7 +567,7 @@ export function OpportunityModal({
 
             <button
               type="button"
-              onClick={() => handleAction("Active")}
+              onClick={() => handleAction("ACTIVE")}
               className="rounded-xl bg-basket-darkgreen px-5 py-2.5 font-semibold text-white shadow-2xs transition-colors hover:bg-basket-olive"
             >
               Publish

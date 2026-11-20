@@ -21,7 +21,7 @@ type OpportunityFormData = {
   startTime: string;
   location: string;
   description: string;
-  status: "Draft" | "Active";
+  status: "DRAFT" | "ACTIVE";
 };
 
 export default function AdminProgrammesPage() {
@@ -46,10 +46,10 @@ export default function AdminProgrammesPage() {
         activeTab === "all"
           ? true
           : activeTab === "active"
-            ? prog.status === "Active" || prog.status === "Steady"
+            ? prog.status === "ACTIVE" || prog.status === "STEADY"
             : activeTab === "pending"
-              ? prog.status === "Pending" || prog.status === "Completed"
-              : prog.status === "Delayed";
+              ? prog.status === "PENDING" || prog.status === "COMPLETED"
+              : prog.status === "DELAYED";
 
       const q = searchQuery.trim().toLowerCase();
 
@@ -62,6 +62,7 @@ export default function AdminProgrammesPage() {
       return matchesTab && matchesSearch;
     });
   }, [programmes, activeTab, searchQuery]);
+  
 
   // Open create modal
   const handleOpenCreateModal = () => {
@@ -181,7 +182,7 @@ export default function AdminProgrammesPage() {
             <p className="mt-1 text-2xl font-bold text-basket-darkgreen">
               {
                 programmes.filter(
-                  (p) => p.status === "Active" || p.status === "Steady",
+                  (p) => p.status === "ACTIVE" || p.status === "STEADY",
                 ).length
               }{" "}
               <span className="text-sm font-normal text-basket-darkgreen/60">
@@ -224,7 +225,8 @@ export default function AdminProgrammesPage() {
                 : "text-basket-darkgreen/60 hover:text-basket-darkgreen"
             }`}
           >
-            All Programmes ({programmes.length})
+            All 
+            {/* ({programmes.length}) */}
           </button>
 
           <button
