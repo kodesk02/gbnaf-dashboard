@@ -9,6 +9,7 @@ import {
   AdminOpportunity,
   Applications,
   Volunteer,
+  AdminActivity,
 } from "@/types/admin";
 import { VolunteerApplication, VolunteerApplicationRecord, VolunteerOpportunity } from "@/types/volunteer";
 
@@ -632,5 +633,50 @@ export const initialVolunteerApplications: VolunteerApplicationRecord[] = [
     scheduleLabel: "Nov 04, 2025 • 08:00 – 14:00",
     submittedAt: "Oct 22, 2025",
     pathway: "Show-up Volunteer",
+  },
+];
+
+export const initialAdminActivities: AdminActivity[] = [
+  {
+    id: "act-201",
+    name: "TFAP Vertical Backyard Farming",
+    programme: "Eco-Agriculture",
+    dateTime: "Nov 12, 08:00 – 14:00",
+    location: "Area 8, Abuja",
+    supervisors: ["M.B. Adamu", "Chioma G."],
+    volunteersCount: 8,
+    status: "IN_PROGRESS",
+  },
+  {
+    id: "act-202",
+    name: "GreenerBasket Walk & Rally",
+    programme: "Food Relief",
+    dateTime: "Nov 12, 10:00 – 13:00",
+    location: "Keffi Hub",
+    supervisors: ["M.B. Adamu", "Chioma G."],
+    volunteersCount: 8,
+    status: "UPCOMING",
+  },
+  {
+    id: "act-203",
+    name: "BRAIN School Meals Packing",
+    programme: "School Nutrition",
+    dateTime: "Nov 12, 10:00 – 13:00",
+    location: "Garki Market",
+    supervisors: ["M.B. Adamu", "Chioma G."],
+    volunteersCount: 8,
+    status: "NEEDS_REVIEW",
+    reviewPriority: "normal",
+  },
+  {
+    id: "act-204",
+    name: "Keffi Field Visit",
+    programme: "School Nutrition",
+    dateTime: "Nov 12, 10:00 – 13:00",
+    location: "Garki Market",
+    supervisors: ["M.B. Adamu", "Chioma G."],
+    volunteersCount: 8,
+    status: "NEEDS_REVIEW",
+    reviewPriority: "urgent",
   },
 ];

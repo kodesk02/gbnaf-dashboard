@@ -7,7 +7,7 @@ import { LinkCard } from "@/components/shared/link-card";
 type Application = {
   id: string;
   title: string;
-  status: "Accepted" | "Under Review";
+  status: "ACCEPTED" | "PENDING";
   submitted: string;
   detail: string;
   action: string;
@@ -16,9 +16,9 @@ type Application = {
 
 const getStatusTone = (status: Application["status"]) => {
   switch (status) {
-    case "Accepted":
+    case "ACCEPTED":
       return "verified";
-    case "Under Review":
+    case "PENDING":
       return "pending";
     default:
       return "verified";

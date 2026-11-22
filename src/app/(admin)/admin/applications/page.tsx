@@ -168,7 +168,8 @@ export default function AdminApplicationsPage() {
                 : "text-basket-darkgreen/60 hover:text-basket-darkgreen"
             }`}
           >
-            Declined ({declinedCount})
+            Declined 
+            {/* ({declinedCount}) */}
           </button>
         </div>
 

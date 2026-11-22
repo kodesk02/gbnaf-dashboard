@@ -110,3 +110,28 @@ export interface Volunteer {
   mode: RoleMode;
 }
 
+export type ActivityStatus =
+  | "IN_PROGRESS"
+  | "UPCOMING"
+  | "COMPLETED"
+  | "NEEDS_REVIEW";
+
+export type ActivityFilterTab =
+  | "ALL"
+  | "ACTIVE"
+  | "UPCOMING"
+  | "COMPLETED"
+  | "NEEDS_REVIEW";
+
+export interface AdminActivity {
+  id: string;
+  name: string;
+  programme: OperationalArea;
+  dateTime: string;
+  location: string;
+  supervisors: string[];
+  volunteersCount: number;
+  status: ActivityStatus;
+  reviewPriority?: "normal" | "urgent";
+}
+
